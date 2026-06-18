@@ -1,75 +1,163 @@
+```html
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Shopping Cart</title>
+    <title>SnapKart Cart</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
 
+<!-- Navbar -->
 <nav class="navbar">
-    <a href="/">Home</a>
-    <a href="/login">Login</a>
-    <a href="/register">Register</a>
-    <a href="/cart">Cart 🛒</a>
-</nav>
 
-<div class="login-box">
-    <h1>My Cart 🛍️</h1>
-
-    <div id="cart-items">
-        <p>No items added yet.</p>
+    <div class="logo">
+        🛒 SnapKart
     </div>
 
-    <h2>Total: ₹0</h2>
-</div>
-<script>
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    <div class="nav-links">
 
-let cartItemsDiv = document.getElementById("cart-items");
+        <a href="/">🏠 Home</a>
+
+        <a href="/login">
+            👤 Login
+        </a>
+
+        <a href="/register">
+            ✨ Register
+        </a>
+
+        <a href="/cart">
+            🛒 Cart
+        </a>
+
+    </div>
+
+</nav>
+
+<!-- Cart Box -->
+<div class="login-box">
+
+    <h1>
+        My Cart 🛍️
+    </h1>
+
+    <div id="cart-items">
+
+        <p>
+            No items added yet.
+        </p>
+
+    </div>
+
+    <h2 id="total-price">
+        Total: ₹0
+    </h2>
+
+</div>
+
+<script>
+
+let cart =
+JSON.parse(
+localStorage.getItem(
+"cart"
+)) || [];
+
+let cartItemsDiv =
+document.getElementById(
+"cart-items"
+);
 
 function displayCart() {
 
-    cartItemsDiv.innerHTML = "";
+    cartItemsDiv.innerHTML =
+    "";
 
     let total = 0;
 
-    if (cart.length === 0) {
-        cartItemsDiv.innerHTML = "<p>No items added yet.</p>";
-        document.querySelector("h2").innerText = "Total: ₹0";
+    if(cart.length === 0) {
+
+        cartItemsDiv.innerHTML =
+        "<p>No items added yet.</p>";
+
+        document
+        .getElementById(
+        "total-price"
+        )
+        .innerText =
+        "Total: ₹0";
+
         return;
     }
 
-    cart.forEach((item, index) => {
+    cart.forEach(
+    (item, index) => {
 
         total += item.price;
 
         cartItemsDiv.innerHTML += `
-            <div style="margin:10px;">
-                <p>${item.name} - ₹${item.price}</p>
 
-                <button onclick="removeItem(${index})">
-                    Remove ❌
-                </button>
-            </div>
+        <div class="card"
+        style="margin-top:20px;">
+
+            <h2>
+                ${item.name}
+            </h2>
+
+            <p>
+                ₹${item.price}
+            </p>
+
+            <button
+onclick="removeItem(${index})">
+
+                Remove ❌
+
+            </button>
+
+        </div>
+
         `;
+
     });
 
-    document.querySelector("h2").innerText =
-        "Total: ₹" + total;
+    document
+    .getElementById(
+    "total-price"
+    )
+    .innerText =
+    "Total: ₹" + total;
+
 }
 
 function removeItem(index) {
 
     cart.splice(index, 1);
 
-    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem(
+    "cart",
+    JSON.stringify(cart)
+    );
 
     displayCart();
+
 }
 
 displayCart();
+
 </script>
+
+<footer class="footer">
+
+<p>
+© 2026 SnapKart |
+Created by Ashritha 💜
+</p>
+
+</footer>
 
 </body>
 </html>
+```

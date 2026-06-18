@@ -1,101 +1,240 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>CodeAlpha E-commerce</title>
+    <title>SnapKart</title>
     <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
-    <nav class="navbar">
-    <a href="/">Home</a>
-    <a href="/login">Login</a>
-    <a href="/register">Register</a>
+
+<!-- Navbar -->
+<nav class="navbar">
+
+    <div class="logo">
+        🛒 SnapKart
+    </div>
+
+    <input
+    type="text"
+    id="search"
+    placeholder="Search products..."
+    onkeyup="searchProducts()">
+
+    <div class="nav-links">
+
+        <a href="/">🏠 Home</a>
+
+        <a href="/login">👤 Login</a>
+
+        <a href="/register">
+            ✨ Register
+        </a>
+
+        <a href="/cart">
+            🛒 Cart
+            (<span id="cart">0</span>)
+        </a>
+
+    </div>
+
 </nav>
-<button onclick="toggleDarkMode()" class="dark-btn">
-    🌙 Dark Mode
+
+<!-- Dark Mode -->
+<div class="dark-mode-box">
+
+<button
+onclick="toggleDarkMode()"
+class="dark-btn">
+
+🌙 Dark Mode
+
 </button>
-<div class="search-box">
-    <input type="text" id="search" placeholder="Search Products..." onkeyup="searchProducts()">
+
 </div>
 
+<!-- Welcome -->
 <h1 class="title">
-    My E-commerce Store 🛍️ | Cart: <span id="cart">0</span>
-</h1>
-<div class="buttons">
-    <a href="/login"><button>Login</button></a>
-    <a href="/register"><button>Register</button></a>
-</div>
 
+    Welcome to
+    SnapKart 🛍️
+
+</h1>
+
+<h2 class="subtitle">
+
+Best Shopping Experience
+at Lowest Prices 💜
+
+</h2>
+
+<!-- Products -->
 <div class="products">
 
+    <!-- Smart Watch -->
     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/61ZjlBOp+rL._SX679_.jpg" alt="Product">
+
+        <img src=
+"https://m.media-amazon.com/images/I/61ZjlBOp+rL._SX679_.jpg">
+
         <h2>
-    <a href="/product/watch">Smart Watch</a>
-</h2>
+            <a href="/product/watch">
+                Smart Watch
+            </a>
+        </h2>
+
         <p>₹1999</p>
-       <button onclick="addToCart('Smart Watch', 1999)">
-    Add to Cart
+
+        <button
+onclick="addToCart(
+'Smart Watch',
+1999
+)">
+Add to Cart
 </button>
+
     </div>
 
+    <!-- Headphones -->
     <div class="card">
-        <img src="https://m.media-amazon.com/images/I/61CGHv6kmWL._SX679_.jpg" alt="Product">
+
+        <img src=
+"https://m.media-amazon.com/images/I/61CGHv6kmWL._SX679_.jpg">
+
         <h2>
-    <a href="/product/headphones">Headphones</a>
-</h2>
+            <a href="/product/headphones">
+                Headphones
+            </a>
+        </h2>
+
         <p>₹1499</p>
-        <button onclick="addToCart('Headphones', 1499)">
-    Add to Cart
+
+        <button
+onclick="addToCart(
+'Headphones',
+1499
+)">
+Add to Cart
 </button>
+
     </div>
 
+    <!-- Shoes -->
     <div class="card">
-       <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="Shoes">
-       <h2>
-    <a href="/product/shoes">Shoes</a>
-</h2>
+
+        <img src=
+"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400">
+
+        <h2>
+            <a href="/product/shoes">
+                Shoes
+            </a>
+        </h2>
+
         <p>₹2499</p>
-        <button onclick="addToCart('Shoes', 2499)">
-    Add to Cart
+
+        <button
+onclick="addToCart(
+'Shoes',
+2499
+)">
+Add to Cart
 </button>
+
     </div>
 
 </div>
+
 <script>
+
 let cartCount = 0;
 let cartItems = [];
 
 function addToCart(name, price) {
 
     cartCount++;
-    document.getElementById("cart").innerText = cartCount;
 
-    cartItems.push({ name, price });
+    document
+    .getElementById("cart")
+    .innerText = cartCount;
 
-    localStorage.setItem("cart", JSON.stringify(cartItems));
+    cartItems.push({
+        name,
+        price
+    });
 
-    alert(name + " added to cart 🛒");
+    localStorage.setItem(
+    "cart",
+    JSON.stringify(cartItems)
+    );
+
+    alert(
+    name +
+    " added to cart 🛒"
+    );
 }
 
 function searchProducts() {
-    let input = document.getElementById("search").value.toLowerCase();
-    let cards = document.querySelectorAll(".card");
+
+    let input =
+    document
+    .getElementById(
+    "search"
+    )
+    .value
+    .toLowerCase();
+
+    let cards =
+    document
+    .querySelectorAll(
+    ".card"
+    );
 
     cards.forEach(card => {
-        let product = card.innerText.toLowerCase();
 
-        if (product.includes(input)) {
-            card.style.display = "block";
+        let product =
+        card.innerText
+        .toLowerCase();
+
+        if(
+        product.includes(
+        input
+        )) {
+
+            card.style.display =
+            "block";
+
         } else {
-            card.style.display = "none";
+
+            card.style.display =
+            "none";
+
         }
+
     });
+
 }
+
 function toggleDarkMode() {
-    document.body.classList.toggle("dark-mode");
+
+    document.body
+    .classList.toggle(
+    "dark-mode"
+    );
+
 }
+
 </script>
 
+<footer class="footer">
+
+<p>
+© 2026 SnapKart |
+Created by Ashritha 💜
+</p>
+
+</footer>
 
 </body>
 </html>
+```

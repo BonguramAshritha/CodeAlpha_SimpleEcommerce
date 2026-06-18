@@ -1,33 +1,98 @@
+```html
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title><%= product.name %></title>
-    <link rel="stylesheet" href="/style.css">
+    <title>
+        <%= product.name %>
+    </title>
+
+    <link rel="stylesheet"
+    href="/style.css">
 </head>
+
 <body>
 
+<!-- Navbar -->
 <nav class="navbar">
-    <a href="/">Home</a>
-    <a href="/login">Login</a>
-    <a href="/register">Register</a>
+
+    <div class="logo">
+        🛒 SnapKart
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/">
+            🏠 Home
+        </a>
+
+        <a href="/login">
+            👤 Login
+        </a>
+
+        <a href="/register">
+            ✨ Register
+        </a>
+
+        <a href="/cart">
+            🛒 Cart
+        </a>
+
+    </div>
+
 </nav>
 
-<div class="product-details">
+<!-- Product Details -->
+<div class="product-container">
 
-    <img src="<%= product.image %>" alt="Product">
+    <div class="product-image">
 
-    <div class="details">
-        <h1><%= product.name %></h1>
-        <h2><%= product.price %></h2>
+        <img
+        src="<%= product.image %>"
+        alt="Product">
 
-        <p><%= product.description %></p>
+    </div>
 
-        <button onclick="alert('Added to Cart 🛍️')">
+    <div class="product-info">
+
+        <h1>
+            <%= product.name %>
+        </h1>
+
+        <h2 class="price">
+
+            ₹<%= product.price %>
+
+        </h2>
+
+        <p class="description">
+
+            <%= product.description %>
+
+        </p>
+
+        <button
+onclick="alert(
+'Added to Cart 🛒'
+)">
+
             Add to Cart
+
         </button>
+
     </div>
 
 </div>
 
+<footer class="footer">
+
+<p>
+© 2026 SnapKart |
+Created by Ashritha 💜
+</p>
+
+</footer>
+
 </body>
 </html>
+```
